@@ -12,6 +12,9 @@
 \setbeamercovered{transparent}
 \usefonttheme[onlymath]{serif}
 
+\usepackage{ragged2e}
+\addtobeamertemplate{block begin}{}{\justifying}
+
 % Document begins here
 \begin{document}
 
@@ -50,7 +53,7 @@
           \end{tabular}
     \item $(V; \lambda)$-ra pedig igaz:\\[1mm]
           \begin{tabular}{p{35mm} l}
-            -- kompatibilitás:   & $(\alpha \beta) \rvec a = \alpha (\beta \rvec a)$.
+            -- asszociatív:      & $(\alpha \beta) \rvec a = \alpha (\beta \rvec a)$.
             \\
             -- egységelem:       & $1 \in T \text{-re } 1\rvec a = \rvec a$,
             \\
@@ -578,20 +581,99 @@
   \frametitle{Lineáris egyenletrendszerek}
   \framesubtitle{Feladatok}
 
+  \vfill
   \input{exercise/linear-equation}
+  \vfill
+  \input{exercise/cramer}
+  \vfill
 \end{frame}
+
+% Linear mappings
+\section{Lineáris leképezések}
+\begin{frame}
+  \frametitle{Lineáris leképezések}
+  \framesubtitle{Alapfogalmak I}
+
+  \begin{block}{Lineáris leképezés}
+    Legyenek $V_1$ és $V_2$ ugyanazon $T$ test feletti vektorterek. Legyen
+    $\varphi: V_1 \rightarrow V_2$ leképezés, melyet lineáris leképezésnek
+    nevezünk, ha tetszőleges két $V_1$-beli vektor ($\forall \rvec a; \rvec b \in
+      V_1$) és $T$-beli skalár ($\alpha \in T$) esetén teljesülnek az alábbiak:
+    \begin{itemize}
+      \item $\varphi(\rvec a + \rvec b) = \varphi(\rvec a) + \varphi(\rvec b)$
+            $\quad \sim \quad$ összegre tagonként hat,
+      \item $\varphi(\alpha \rvec a) = \alpha \varphi(\rvec a)$
+            $\hspace{18mm} \sim \quad$ skalár kiemelhető.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Lineáris leképezések}
+  \framesubtitle{Alapfogalmak II}
+
+  \vfill
+  \begin{block}{Magtér}
+    Legyen $\varphi: V_1 \rightarrow V_2$ lineáris leképezés. A leképezés
+    magtere:
+    \[
+      \ker \varphi = \Big\{\;
+      \rvec v \;\Big|\; \rvec v \in V_1 \;\land\;
+      \varphi(\rvec v) = \nvec
+      \;\Big\}
+      \text.
+    \]
+  \end{block}
+  \vfill
+  \begin{block}{Defektus}
+    A magtér dimenzióját a leképezés defektusának nevezzük:
+    \[
+      \dim \ker \varphi = \defect \varphi
+      \text.
+    \]
+  \end{block}
+  \vfill
+\end{frame}
+
+\begin{frame}
+  \frametitle{Lineáris leképezések}
+  \framesubtitle{Alapfogalmak III}
+
+  \vfill
+  \begin{block}{Képtér}
+    Egy $\varphi: V_1 \rightarrow V_2$ lineáris leképezés rangjának nevezzük
+    a képtér dimenzióját:
+    \[
+      \rg \varphi = \Big\{\;
+      \rvec u \;\Big|\; \rvec w \in V_2 \;\land\;
+      \rvec w = \varphi(\rvec v);\; \rvec v \in V_1
+      \;\Big\}
+      \text.
+    \]
+  \end{block}
+  \vfill
+  \begin{block}{Rang nullitás tétele}
+    Legyen $V_1$ véges dimenziós vektortér, $\varphi: V_1 \rightarrow V_2$
+    lineáris leképezés, ekkor:
+    \[
+      \rg \varphi + \defect \varphi = \dim V_1
+    \]
+  \end{block}
+  \vfill
+\end{frame}
+
+\begin{frame}
+  \frametitle{Lineáris leképezések}
+  \framesubtitle{Feladatok}
+
+\end{frame}
+
+
 
 % % Matrix equations
 % \section{Mátrixos egyenletek}
 % \begin{frame}
 %   \frametitle{Mátrixos egyenletek}
-% \end{frame}
-%
-%
-% % Linear mappings
-% \section{Lineáris leképezések}
-% \begin{frame}
-%   \frametitle{Lineáris leképezések}
 % \end{frame}
 %
 % % Eigenvalues and eigenvectors

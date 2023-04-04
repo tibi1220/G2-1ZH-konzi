@@ -1,5 +1,5 @@
 # Fdb version 4
-["lualatex"] 1680603865 "handout.tex" "build/handout.pdf" "handout" 1680603867 0
+["lualatex"] 1680626302 "handout.tex" "build/handout.pdf" "handout" 1680626304 0
   "/Users/tiborsandor/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-bold.luc" 1680369852 128299 b151497b293cf2f51c7db1d2ff6e9c88 ""
   "/Users/tiborsandor/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-regular.luc" 1680369851 127670 710f0772a5cfcd2e057ee46ebf6eb610 ""
   "/Users/tiborsandor/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmsans10-bold.luc" 1680514182 128104 cb3773112384d27b77501a4b1ec5a4d8 ""
@@ -233,17 +233,19 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1680269378 4622752 02d70c555fb1ccbaa0b6f1f330ce9b3b ""
   "/usr/local/texlive/2023/texmf-var/tex/generic/config/language.dat" 1678822458 6627 dc320a7c13e00300e5a0f696ef4294be ""
   "/usr/local/texlive/2023/texmf-var/web2c/luahbtex/lualatex.fmt" 1680269440 11877176 ea9f7e450f51954f9dd3b77cca03b781 ""
-  "build/handout.aux" 1680603867 149 681ab52a7e53268a93c2a0f24bc1df03 "lualatex"
+  "build/handout.aux" 1680626304 149 fc36770ce2fba9d7011c9a24ac1e1ee3 "lualatex"
+  "exercise/cramer.tex" 1680624560 1073 43fcd11a24d65210234dba865471a661 ""
   "exercise/determinant.tex" 1680537560 973 ea7f8e8efbb1cdb9d707afaa2fc224f6 ""
   "exercise/eigen.tex" 1680547343 4146 87f67fd70b1b4d4b743496b32d13780e ""
-  "exercise/inverse.tex" 1680600722 6804 55366fe454dbf63ad02bea76b9684422 ""
+  "exercise/inverse.tex" 1680624697 6808 f15395d52c95a8ace237fcc06a3c7234 ""
+  "exercise/linear-equation.tex" 1680624738 2384 9f376755f46fd7bcd967dffa2dcfa6e7 ""
   "exercise/matrix-equation.tex" 1680598275 1868 b3867c96c924b55b4e8cd0ab798d0490 ""
   "exercise/rank.tex" 1680537534 1743 3e5b295a61d09d6c8a9231e8c87f38b6 ""
   "exercise/span.tex" 1680601073 1087 efb56afe957b2683f9cf1119c11f7d52 ""
   "exercise/vector-space.tex" 1680603345 842 7538f8bdc85c8934b59ca007db8bfcca ""
-  "handout.tex" 1680603861 626 4a0090fb876ffe397f792d3cb0017e76 ""
-  "mystyles.sty" 1680593870 1208 de97860af430c5b577a8af1fe48adad0 ""
-  "packages.tex" 1680603843 867 ca8cdf5df4b3caa2cdbe82b5aa3327f7 ""
+  "handout.tex" 1680624575 685 aea1cd74ab8b29e915adf71a508fc441 ""
+  "mystyles.sty" 1680623770 1205 ed2ed43ca1ef6695d32f315eef524b2f ""
+  "packages.tex" 1680626300 949 075d839b7a9bd9f45ff184e6f7571013 ""
   (generated)
   "build/handout.aux"
   "build/handout.log"

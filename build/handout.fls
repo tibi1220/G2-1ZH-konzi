@@ -434,6 +434,10 @@ INPUT ./exercise/rank.tex
 INPUT ./exercise/inverse.tex
 INPUT ./exercise/inverse.tex
 INPUT /Users/tiborsandor/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmsans8-regular.luc
+INPUT ./exercise/linear-equation.tex
+INPUT ./exercise/linear-equation.tex
+INPUT ./exercise/cramer.tex
+INPUT ./exercise/cramer.tex
 INPUT ./exercise/matrix-equation.tex
 INPUT ./exercise/matrix-equation.tex
 INPUT ./exercise/eigen.tex

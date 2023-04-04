@@ -1,3 +1,4 @@
 \select@language {magyar} \beamer@sectionintoc {1}{Vektorterek}{3}{0}{1}
 \select@language {magyar} \beamer@sectionintoc {2}{Mátrixok}{7}{0}{2}
 \select@language {magyar} \beamer@sectionintoc {3}{Lineáris egyenletrendszerek}{16}{0}{3}
+\select@language {magyar} \beamer@sectionintoc {4}{Lineáris leképezések}{22}{0}{4}

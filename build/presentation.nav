@@ -49,8 +49,17 @@
 \select@language {magyar} \headcommand {\beamer@framepages {20}{20}}
 \select@language {magyar} \headcommand {\slideentry {3}{0}{6}{21/21}{}{0}}
 \select@language {magyar} \headcommand {\beamer@framepages {21}{21}}
-\headcommand {\beamer@partpages {1}{21}}
-\headcommand {\beamer@subsectionpages {16}{21}}
-\headcommand {\beamer@sectionpages {16}{21}}
-\headcommand {\beamer@documentpages {21}}
-\headcommand {\gdef \inserttotalframenumber {21}}
+\select@language {magyar} \headcommand {\beamer@sectionpages {16}{21}}
+\select@language {magyar} \headcommand {\beamer@subsectionpages {16}{21}}
+\select@language {magyar} \headcommand {\sectionentry {4}{Lineáris leképezések}{22}{Lineáris leképezések}{0}}
+\select@language {magyar} \headcommand {\slideentry {4}{0}{1}{22/22}{}{0}}
+\select@language {magyar} \headcommand {\beamer@framepages {22}{22}}
+\select@language {magyar} \headcommand {\slideentry {4}{0}{2}{23/23}{}{0}}
+\select@language {magyar} \headcommand {\beamer@framepages {23}{23}}
+\select@language {magyar} \headcommand {\slideentry {4}{0}{3}{24/24}{}{0}}
+\select@language {magyar} \headcommand {\beamer@framepages {24}{24}}
+\headcommand {\beamer@partpages {1}{24}}
+\headcommand {\beamer@subsectionpages {22}{24}}
+\headcommand {\beamer@sectionpages {22}{24}}
+\headcommand {\beamer@documentpages {24}}
+\headcommand {\gdef \inserttotalframenumber {24}}

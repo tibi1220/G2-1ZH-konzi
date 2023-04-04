@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.3.31)  4 APR 2023 12:24
+This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.3.31)  4 APR 2023 18:38
  system commands enabled.
  file:line:error style messages enabled.
 **handout.tex
@@ -1134,22 +1134,22 @@ LaTeX Font Info:    Font shape `TU/STIXTwoText-Regular.otf(0)/m/sl' in size <12>
  [1
 
 
-{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) (./exercise/determinant.tex) (./exercise/rank.tex [2]) (./exercise/inverse.tex [3] [4]) (./exercise/matrix-equation.tex) (./exercise/eigen.tex [5] [6]) [7] (./build/handout.aux))
+{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) (./exercise/determinant.tex) (./exercise/rank.tex [2]) (./exercise/inverse.tex [3] [4]) (./exercise/linear-equation.tex [5]) (./exercise/cramer.tex) (./exercise/matrix-equation.tex [6]) (./exercise/eigen.tex [7]) [8] (./build/handout.aux))
 
 Here is how much of LuaTeX's memory you used:
- 32051 strings out of 478278
+ 32077 strings out of 478278
  125007,1977958 words of node,token memory allocated
- 798 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 91 attribute, 62 glue_spec, 47 attribute_list, 2 write nodes
-   avail lists: 1:1,2:7811,3:1130,4:133,5:636,6:315,7:7386,8:55,9:3685,10:8,11:332
- 51174 multiletter control sequences out of 65536+600000
- 76 fonts using 29776943 bytes
- 115i,18n,145p,10601b,1046s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 834 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 103 attribute, 62 glue_spec, 53 attribute_list, 2 write nodes
+   avail lists: 1:1,2:7793,3:1130,4:132,5:656,6:315,7:7394,8:55,9:3685,10:8,11:345
+ 51186 multiletter control sequences out of 65536+600000
+ 76 fonts using 29777007 bytes
+ 115i,18n,145p,10601b,1031s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/stix2-otf/STIXTwoText-Bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/stix2-otf/STIXTwoText-Regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/stix2-otf/STIXTwoText-Bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/stix2-otf/STIXTwoMath-Regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/stix2-otf/STIXTwoMath-Regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/stix2-otf/STIXTwoText-Regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf>
-Output written on handout.pdf (7 pages, 46182 bytes).
+Output written on handout.pdf (8 pages, 51271 bytes).
 
-PDF statistics: 85 PDF objects out of 1000 (max. 8388607)
- 51 compressed objects within 1 object stream
+PDF statistics: 88 PDF objects out of 1000 (max. 8388607)
+ 53 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  16 words of extra memory for PDF output out of 10000 (max. 100000000)
 
