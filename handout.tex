@@ -1,0 +1,37 @@
+\documentclass[a4paper, 12pt]{scrartcl}
+
+\input{packages}
+\usepackage[
+  print-solutions
+]{mystyles}
+
+\usepackage[
+  margin=1in,
+  footskip=.6in
+]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\renewcommand\headrulewidth{1mm}
+\renewcommand\footrulewidth{1mm}
+
+\setlength\parskip{.66em}
+\setlength\parindent{0em}
+
+\usepackage[shortlabels]{enumitem}
+
+\begin{document}
+\allowdisplaybreaks
+
+\maketitle
+\thispagestyle{fancy}
+
+\input{exercise/vector-space}
+\input{exercise/span}
+\input{exercise/determinant}
+\input{exercise/rank}
+\input{exercise/inverse}
+\input{exercise/matrix-equation}
+\input{exercise/eigen}
+
+\end{document}

@@ -1,0 +1,23 @@
+\begin{exercise}{%
+		Döntsük el, hogy vektorteret alkotnak-e az alábbi számhármasok
+		$\mathbb R^3$-ban?
+	}
+	\newcommand{\setmap}[2]{\Big\{\, #1 \,\Big|\, #2 \,\Big\}}
+	\begin{enumerate}[a)]
+		\item $Q_1 = \setmap{(x_1; x_2; x_3)}{x_1 + x_2 = 0}$
+		\item $Q_2 = \setmap{(x_1; x_2; x_3)}{x_1 = \pi}$
+		\item $Q_3 = \setmap{(x_1; x_2; x_3)}{x_1 = x_2 = x_3}$
+		\item $Q_3 = \setmap{(x_1; x_2; x_3)}{x_1 = (x_2)^2}$
+	\end{enumerate}
+
+	\exsol{%
+		\begin{enumerate}[a)]
+			\item Igen, mert a műveletek sosem mutatnak ki a vektortérből, hiszen ha\\
+			      $\alpha(x_{11} + x_{12}) = 0$,
+			      akkor $\alpha x_{11} + \alpha x_{12} = 0$.
+			\item Nem, hiszen $\pi + \pi \neq \pi$.
+			\item Igen, hiszen a műveletek sosem mutatnak ki a vektortérből.
+			\item Nem, hiszen $(a + b)^2 \neq a^2 + b^2$.
+		\end{enumerate}
+	}
+\end{exercise}
