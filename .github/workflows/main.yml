@@ -9,8 +9,6 @@ jobs:
         id: get_date
         run: echo "date=$(date +'%Y-%m-%d--%H-%M-%S')" >> $GITHUB_OUTPUT
 
-      - name: Install GNUplot
-
       - name: Checkout repo
         id: checkout_repo
         uses: actions/checkout@v3
