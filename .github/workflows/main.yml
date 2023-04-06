@@ -1,0 +1,76 @@
+name: Build and Release LaTeX Document
+on: [push]
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - name: Get Current Date
+        id: get_date
+        run: echo "date=$(date +'%Y-%m-%d--%H-%M-%S')" >> $GITHUB_OUTPUT
+
+      - name: Checkout repo
+        id: checkout_repo
+        uses: actions/checkout@v3
+
+      - name: Compile LaTeX Document
+        id: compile_latex
+        uses: xu-cheng/texlive-action/full@v1
+        with:
+          run: |
+            latexmk -r .latexmkrc handout.tex
+            latexmk -r .latexmkrc presentation.tex
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.get_date.outputs.date }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Presentation to Release
+        id: upload_presentation_pdf
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build/presentation.pdf
+          asset_name: mszo-g2-1zh-eloadas.pdf
+          asset_content_type: application/pdf
+
+      - name: Upload Presentation Logfile to release
+        id: upload_presentation_log
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build/presentation.log
+          asset_name: presentation.log
+          asset_content_type: text/log
+
+      - name: Upload Handout to Release
+        id: upload_handout_pdf
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build/handout.pdf
+          asset_name: mszo-g2-1zh-feladatok.pdf
+          asset_content_type: application/pdf
+
+      - name: Upload Presentation Logfile to release
+        id: upload_handout_log
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build/handout.log
+          asset_name: handout.log
+          asset_content_type: text/log
