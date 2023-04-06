@@ -1,0 +1,173 @@
+\section{Lineáris egyenletrendszerek}
+\begin{frame}
+  \frametitle{Lineáris egyenletrendszerek}
+  \framesubtitle{Definíció}
+
+  \begin{block}{Lineáris egyenletrendszer}
+    Véges sok elsőfokú egyenletet és véges sok ismeretlent tartalmazó
+    egyenletrendszert lineáris egyenletrendszernek nevezünk.
+    \\[2mm]
+    Az $m$ egyenletből és $n$ ismeretlenből álló lineáris egyenletrendszer
+    általános alakja:
+    \[
+      \begin{array}{*{9}{c}}
+        a_{11} x_{1} & + & a_{12} x_{2} & + & \dots  & + & a_{1n} x_{n} & = & b_{1}\text, \\[1mm]
+        a_{21} x_{1} & + & a_{22} x_{2} & + & \dots  & + & a_{2n} x_{n} & = & b_{2}\text, \\[1mm]
+        \vdots       &   & \vdots       &   & \vdots &   & \vdots       &   & \vdots      \\[1mm]
+        a_{m1} x_{1} & + & a_{m2} x_{2} & + & \dots  & + & a_{mn} x_{n} & = & b_{m}\text.
+      \end{array}
+    \]
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Lineáris egyenletrendszerek}
+  \framesubtitle{Mátrixos alak}
+
+  \begin{block}{LER mátrixos alakja}
+    Egy lineáris egyenletrendszer felírható $\rmat A \rvec x = \rmat b$
+    alakban, ahol $\rmat A$ az együttható mátrix, $\rvec x$ az ismeretlenek
+    vektora, $\rvec b$ pedig a konstans vektor.
+
+    \[
+      \underbrace{\begin{bmatrix}
+          a_{11} & a_{12} & \cdots & a_{1n} \\
+          a_{21} & a_{22} & \cdots & a_{2n} \\
+          \vdots & \vdots & \ddots & \vdots \\
+          a_{m1} & a_{m2} & \cdots & a_{mn}
+        \end{bmatrix}}_{\rmat A} \underbrace{\begin{bmatrix}
+          x_{1} \\ x_{2} \\ \vdots \\ x_{n}
+        \end{bmatrix}}_{\rvec x} = \underbrace{\begin{bmatrix}
+          b_{1} \\ b_{2} \\ \vdots \\ b_{m}
+        \end{bmatrix}}_{\rvec b}
+    \]
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Lineáris egyenletrendszerek}
+  \framesubtitle{Megoldhatóság}
+
+  \begin{block}{LER megoldhatóságának szükséges és elégséges feltétele}
+    Az $\rmat A \rvec x = \rvec b$ lineáris egyenletrendszer akkor és csak
+    akkor oldható meg, ha $\rg(\rmat A) = \rg(\rmat A | \rvec b)$, ahol az
+    $(\rmat A | \rvec b)$ mátrixot kibővített mátrixnak nevezzük.
+
+    A feltétel mátrixosan:
+    \[
+      \rg \begin{bmatrix}
+        a_{11} & a_{12} & \cdots & a_{1n} \\
+        a_{21} & a_{22} & \cdots & a_{2n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{m1} & a_{m2} & \cdots & a_{mn}
+      \end{bmatrix} = \rg \left[\begin{array}{cccc|c}
+          a_{11} & a_{12} & \cdots & a_{1n} & b_1    \\
+          a_{21} & a_{22} & \cdots & a_{2n} & b_2    \\
+          \vdots & \vdots & \ddots & \vdots & \vdots \\
+          a_{m1} & a_{m2} & \cdots & a_{mn} & b_n
+        \end{array}\right]\text.
+    \]
+
+    A feltételből következik, hogy homogén lineáris egyenletrendszer
+    ($\rvec b = \nvec$) mindig megoldható, hiszen az együttható mátrixból és egy
+    nullvektorból képzett kibővített mátrix rangja mindig meg fog egyezni az
+    együttható mátrix rangjával.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Lineáris egyenletrendszerek}
+  \framesubtitle{Megoldási módszerek I}
+
+  \begin{block}{Mátrix inverziós módszer}
+    Ha az $\rmat A$ mátrix kvadratikus és reguláris, akkor invertálható:
+    \[
+      \rvec x = \rmat A^{-1} \rvec b
+      \text.
+    \]
+  \end{block}
+
+  \begin{block}{Cramer-szabály}
+    Ha az $\rmat A$ mátrix kvadratikus és reguláris, akkor az együtthatók az
+    alábbi módon számíthatóak:
+    \[
+      x_i = \frac{\det \rmat A_i}{\det \rmat A}
+      \text,
+    \]
+    ahol az $\rmat A_i$ mátrixot úgy képezzük, hogy az $i$-edig sorába
+    $\rvec b$ vektort írjuk be.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Lineáris egyenletrendszerek}
+  \framesubtitle{Megoldási módszerek II}
+
+  \vspace{-7.5mm}
+  \begin{block}{Gauss elimináció}
+    Sorműveletekkel alakítjuk a kibővített mátrixot:
+    \[
+      \left[\begin{array}{cccc|c}
+          a_{11} & a_{12} & \cdots & a_{1n} & b_1    \\
+          a_{21} & a_{22} & \cdots & a_{2n} & b_2    \\
+          \vdots & \vdots & \ddots & \vdots & \vdots \\
+          a_{m1} & a_{m2} & \cdots & a_{mn} & b_n
+        \end{array}\right]
+      \quad\sim\quad
+      \left[\begin{array}{cccc|c}
+          \square & \square & \cdots & \square & \square \\
+          0       & \square & \cdots & \square & \square \\
+          \vdots  & \vdots  & \ddots & \vdots  & \vdots  \\
+          0       & 0       & \cdots & \circ   & \circ
+        \end{array}\right]
+    \]
+  \end{block}
+
+  \begin{block}{Megoldások száma $\rmat A \in \mathbb R^{n \times n}$ esetben}
+    \centering
+    \begin{tikzpicture}[thick]
+      \foreach \i in {0,1,2} {
+          \node at (\i*4cm,0) {$\left[\phantom{\begin{matrix}10000000000\\\\\\\\\end{matrix}}\right]$};
+
+          \draw (\i*4cm+4mm,.75cm) -- ++(0,-1.5cm);
+        }
+
+      \draw (5.35mm,7mm) rectangle ++(5mm, -14mm);
+      \draw (45.35mm,7mm) rectangle ++(5mm, -14mm);
+      \draw (85.35mm,7mm) rectangle ++(5mm, -9.25mm) node[below left] {$0$};
+
+      \draw (2.65mm,7mm)
+      -- ++(-13.75mm,0)
+      -- ++(6.75mm,-9.25mm)
+      -- ++(7mm,0)
+      node[midway, below] {$0$}
+      -- cycle;
+      \draw (42.65mm,7mm)
+      -- ++(-13.75mm,0)
+      -- ++(13.75mm,-13.75mm)
+      node[midway, below left=2.25mm] {$\quad0$}
+      -- cycle;
+      \draw (82.65mm,7mm)
+      -- ++(-13.75mm,0)
+      -- ++(6.75mm,-9.25mm)
+      -- ++(7mm,0)
+      node[midway, below] {$0$}
+      -- cycle;
+
+      \node[] at (0cm,1cm) {Nincs mo.};
+      \node[] at (4cm,1cm) {1db mo.};
+      \node[] at (8cm,1cm) {$\infty$ mo.};
+    \end{tikzpicture}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Lineáris egyenletrendszerek}
+  \framesubtitle{Feladatok}
+
+  \vfill
+  \input{exercise/linear-equation}
+  \vfill
+  \input{exercise/cramer}
+  \vfill
+\end{frame}

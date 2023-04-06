@@ -1,0 +1,71 @@
+\section{Vektorterek}
+\begin{frame}
+  \frametitle{Vektorterek}
+  \framesubtitle{Definíció}
+
+  Legyen $V$ nem üreshalmaz, és $+; \lambda$ két művelet, valamint $T$ test.
+  $(V; +; \lambda)$ a $T$ test feletti vektortér, ha az alábbiak teljesülnek:
+  \begin{itemize}
+    \def\arraystretch{1.2}
+    \item $(V; +)$ Abel csoport:\\[1mm]
+          \begin{tabular}{p{35mm} l}
+            -- asszociatív:        &
+            $\rvec a + (\rvec b + \rvec c) = (\rvec a + \rvec b) + \rvec c$,
+            \\
+            -- kommutatív:         &
+            $\rvec a + \rvec b = \rvec b + \rvec a$,
+            \\
+            -- létezik zérus elem: &
+            $\exists \nvec \in V \text{, melyre } \rvec a + \nvec = \rvec a$,
+            \\
+            -- létezik inverz:     &
+            $\forall \rvec a \text{-re } \exists - \rvec a \text{, hogy } \rvec v + (- \rvec v) = \nvec$.
+          \end{tabular}
+    \item $(V; \lambda)$-ra pedig igaz:\\[1mm]
+          \begin{tabular}{p{35mm} l}
+            -- asszociatív:      & $(\alpha \beta) \rvec a = \alpha (\beta \rvec a)$.
+            \\
+            -- egységelem:       & $1 \in T \text{-re } 1\rvec a = \rvec a$,
+            \\
+            -- disztributivitás: & $\alpha(\rvec a + \rvec b) = \alpha \rvec a + \alpha \rvec b$,
+            \\
+                                 & $(\alpha + \beta) \rvec a = \alpha \rvec a + \beta \rvec a$.
+          \end{tabular}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Vektorterek}
+  \framesubtitle{Vektorteres feladat}
+
+  \input{exercise/vector-space.tex}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Vektorterek}
+  \framesubtitle{További definíció}
+
+  \begin{block}{Altér}
+    Legyen $(V; +; \lambda)$ a $T$ test feletti vektortér, és
+    $\emptyset \neq L \subset V$. $L$-t altérnek nevezzük $V$-ben, ha
+    $(L; +; \lambda)$ ugyancsak vektortér.
+  \end{block}
+
+  \begin{block}{Generátorrendszer}
+    Legyen $\emptyset \neq G \subset V$. Ekkor $G$ által generált altérnek
+    nevezzük azt a legszűkebb alteret, amely tartalmazza $G$-t. Ha ez az
+    altér maga $V$, akkor $G$ generátorrendszere $V$-nek. ($\mathcal L(G)=V$)
+  \end{block}
+
+  \begin{block}{Bázis}
+    A $V$ vektortér egy lineárisan független generátorrendszerét a $V$ bázisának
+    hívjuk.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Vektorterek}
+  \framesubtitle{Generátoros feladat}
+
+  \input{exercise/span.tex}
+\end{frame}

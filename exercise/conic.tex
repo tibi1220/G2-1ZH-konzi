@@ -1,0 +1,76 @@
+\begin{exercise}{%
+    Milyen alakzatot írnak le az alábbi másodfokú görbék?
+  }
+  \begin{enumerate}[a)]
+    \item $5x^2 + 3y^2 + 12xy = -169$
+    \item $5x^2 + 3y^2 + 4xy = 49$
+  \end{enumerate}
+
+  \exsol{%
+    \begin{enumerate}[a)]
+      \item $5x^2 + 3y^2 + 12xy = -169$
+
+            Hozzuk az egyenlet bal oldalát mátrixos alakra:
+            \[
+              5x^2 + 3y^2 + 12xy =
+              \begin{bmatrix} x & y \end{bmatrix}
+              \begin{bmatrix} 5 & 6 \\ 6 & 3 \end{bmatrix}
+              \begin{bmatrix} x \\ y \end{bmatrix}
+              \text.
+            \]
+            Határozzuk meg a mátrix sajátértékeit:
+            \[
+              \begin{vmatrix} 5 - \lambda & 6 \\ 6 & 3 - \lambda \end{vmatrix}
+              = (5 - \lambda)(3 - \lambda) - 36
+              = \lambda^2 - 8 \lambda + 15 - 36
+              = \lambda^2 - 8 \lambda -21
+              = 0
+              \text,
+            \]
+            \[
+              \lambda_{12}
+              = \frac{8 \pm \sqrt{8^2 + 4 \cdot 1 \cdot 21}}{2}
+              = 4 \pm \sqrt{37}
+              = \begin{cases}
+                - 2,0828 \text, \\
+                10.083 \text.
+              \end{cases}
+            \]
+            Látható, hogy az egyik sajátérték pozitív, a másik pedig negatív,
+            vagyis indefinit. Az alakzat ebből következőleg hiperbola.
+
+
+            \tcbline
+      \item $5x^2 + 3y^2 + 4xy = 49$
+
+            Hozzuk az egyenlet bal oldalát mátrixos alakra:
+            \[
+              5x^2 + 3y^2 + 4xy =
+              \begin{bmatrix} x & y \end{bmatrix}
+              \begin{bmatrix} 5 & 2 \\ 2 & 3 \end{bmatrix}
+              \begin{bmatrix} x \\ y \end{bmatrix}
+              \text.
+            \]
+            Határozzuk meg a mátrix sajátértékeit:
+            \[
+              \begin{vmatrix} 5 - \lambda & 2 \\ 2 & 3 - \lambda \end{vmatrix}
+              = (5 - \lambda)(3 - \lambda) - 4
+              = \lambda^2 - 8 \lambda + 15 - 4
+              = \lambda^2 - 8 \lambda + 11
+              = 0
+              \text,
+            \]
+            \[
+              \lambda_{12}
+              = \frac{8 \pm \sqrt{8^2 - 4 \cdot 1 \cdot 11}}{2}
+              = 4 \pm \sqrt{5}
+              = \begin{cases}
+                1,7639 \text, \\
+                6,2361 \text.
+              \end{cases}
+            \]
+            Látható, hogy minkét sajátérték pozitív, vagyis a mátrix pozitív
+            definit. Az alakzat ebből következőleg ellipszis.
+    \end{enumerate}
+  }
+\end{exercise}

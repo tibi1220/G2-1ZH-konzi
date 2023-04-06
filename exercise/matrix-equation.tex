@@ -14,7 +14,7 @@
   \begin{enumerate}[a)]
     \item $\rmat X \cdot \rmat A = \rmat B$
     \item $\rmat A \cdot \rmat X = \rmat B$
-    \item $2(\rmat A + \rmat X) = 3(\rmat A^{-1} + \rmat X)$
+    \item $2(\rmat A + \rmat X) = 3(\rmat X - \rmat A^{-1})$
     \item $\rmat B \cdot \rmat B^{\mathsf T} = \rmat A \cdot \rmat X$
   \end{enumerate}
 
@@ -66,9 +66,9 @@
 
             Rendezzük $\rmat X$-re az egyenletet:
             \begin{gather*}
-              2 \rmat A + 2 \rmat X = 3 \rmat A^{-1} + 3 \rmat X
+              2 \rmat A + 2 \rmat X = 3 \rmat X - 3 \rmat A^{-1}
               \quad \rightarrow \quad
-              \rmat X = 2 \rmat A - 3 \rmat A^{-1}
+              \rmat X = 2 \rmat A + 3 \rmat A^{-1}
               \\
               \rmat X = 2 \begin{bmatrix}
                 2 & 3 \\ 3 & 5

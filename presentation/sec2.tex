@@ -1,0 +1,320 @@
+\section{Mátrixok}
+\begin{frame}
+  \frametitle{Mátrixok}
+  \framesubtitle{Alapfogalmak}
+
+  \vfill
+
+  \begin{block}{Mátrix}
+    Az $m$ sorba és $n$ oszlopba rendezett rendezett számokat mátrixoknak
+    nevezzük.
+  \end{block}
+
+  \vfill
+
+  \begin{block}{Transzponált}
+    Egy mátrix transzponáltja a főátlóra való tükörképe. Jele: $A^\mathsf T$.
+  \end{block}
+
+  \vfill
+
+  \begin{block}{Szimmetrikus mátrix}
+    Ha $A = A^\mathsf T$, akkor a mátrix szimmetrikus.
+  \end{block}
+
+  \vfill
+
+  \begin{block}{Antiszimmetrikus mátrix}
+    Ha $A = -A^\mathsf T$, akkor a mátrix antiszimmetrikus.
+  \end{block}
+
+  \vfill
+\end{frame}
+
+\begin{frame}
+  \frametitle{Mátrixok}
+  \framesubtitle{Elemi mátrixműveletek}
+
+  \vfill
+
+  \begin{block}{Összeadás}
+    Ha $\rmat A; \rmat B \in \mathbb R^{n \times k}$, akkor az összegükön a
+    megfelelő elempárok összeadásával keletkező mátrixot értjük.
+  \end{block}
+
+  \vfill
+
+  \begin{block}{Skalárral való szorzás}
+    Egy mátrix és egy skalár szorzata olyan mátrix, melynek minden eleme
+    skalárszorosa az eredeti mátrix elemeinek.
+  \end{block}
+
+  \vfill
+\end{frame}
+
+\begin{frame}
+  \frametitle{Mátrixok}
+  \framesubtitle{Elemi mátrixműveletek}
+
+  \begin{block}{Mátrix szorzás
+      -- asszociatív, disztributív, de nem kommutatív!}
+    \[
+      \left.\begin{array}{ll}
+        \rmat A \in \mathbb R^{m \times n} \\
+        \rmat B \in \mathbb R^{n \times p}
+      \end{array}\right\}
+      \; \rightarrow \;
+      \rmat A \cdot \rmat B \in \mathbb R^{m \times p}
+    \]
+
+    \def\arraystretch{1.1}
+    \begin{align*}
+       & \left[\begin{array}{X{2cm}cX{2cm}}
+                   b_{11} & \dots  & b_{1p} \\
+                   b_{21} & \dots  & b_{2p} \\
+                   \vdots & \ddots & \vdots \\
+                   b_{n1} & \dots  & b_{np}
+                 \end{array}\right]
+      \\
+      \left[\begin{array}{cccc}
+                a_{11} & a_{12} & \dots  & a_{1n} \\
+                a_{21} & a_{22} & \dots  & a_{2n} \\
+                \vdots & \vdots & \ddots & \vdots \\
+                a_{m1} & a_{m2} & \dots  & a_{mn}
+              \end{array}\right]
+       & \left[\begin{array}{X{2cm}cX{2cm}}
+                   \sum a_{1i} b_{i1} & \dots & \sum a_{1i} b_{ip} \\
+                   \sum a_{2i} b_{i1} & \dots & \sum a_{2i} b_{ip} \\
+                   \vdots             & \dots & \vdots             \\
+                   \sum a_{mi} b_{i1} & \dots & \sum a_{mi} b_{ip}
+                 \end{array}\right]
+    \end{align*}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Mátrixok}
+  \framesubtitle{Determináns}
+
+  \begin{block}{Kifejtési tétel -- előjelszabály!}
+    \begin{align*}
+      \begin{vmatrix}
+        + & - & + \\
+        - & + & - \\
+        + & - & + \\
+      \end{vmatrix}
+      \; \rightarrow \;
+      \begin{vmatrix}
+        a & b & c \\
+        d & e & f \\
+        g & h & i \\
+      \end{vmatrix}
+       & = a \begin{vmatrix}
+               e & f \\ h & i
+             \end{vmatrix}
+      - b \begin{vmatrix}
+            d & f \\ g & i
+          \end{vmatrix}
+      + c \begin{vmatrix}
+            d & e \\ g & h
+          \end{vmatrix}
+      \\
+       & = a (ei - hf) - b(di - gf) + c(dh - eg)
+    \end{align*}
+  \end{block}
+
+  \begin{block}{Sarrus-szabály -- csak ($3 \times 3$)-as mátrixoknál!}
+    \centering
+    \begin{tikzpicture}[ampersand replacement=\&]
+      \matrix[
+        matrix of math nodes,
+        column sep=2mm,
+      ] (sarrus) {
+        a\vphantom{b} \& b \& c\vphantom{b} \& a \& b \\
+        d \& e \& f \& d \& e                         \\
+        g \& h\vphantom{g} \& i\vphantom{g} \& g \& h \\
+      };
+
+      \draw[red!40!gray, ultra thick, opacity=.5]
+      (sarrus-1-1.center) -- (sarrus-3-3.center)
+      (sarrus-1-2.center) -- (sarrus-3-4.center)
+      (sarrus-1-3.center) -- (sarrus-3-5.center)
+      ;
+
+      \draw[blue!40!gray, ultra thick, opacity=.5]
+      (sarrus-3-1.center) -- (sarrus-1-3.center)
+      (sarrus-3-2.center) -- (sarrus-1-4.center)
+      (sarrus-3-3.center) -- (sarrus-1-5.center)
+      ;
+
+      \draw[black, thick]
+      (sarrus-1-1.north west) -- (sarrus-3-1.south west)
+      (sarrus-1-3.north east) -- (sarrus-3-3.south east)
+      ;
+
+      \foreach \i in {1,2,3}{
+          \node[above=-2.5mm, red!40!gray] at (sarrus-1-\i.north) {$+$};
+          \node[below=-1.5mm, blue!40!gray] at (sarrus-3-\i.south) {$-$};
+        }
+
+      \node[] at (5,.25) {$\det \rmat A = + aei + bfg + cdh$};
+      \node[] at (5,-.25) {$\phantom{\det \rmat A =} - gec - hfa - idb$};
+    \end{tikzpicture}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Mátrixok}
+  \framesubtitle{Rang}
+
+  \begin{block}{Mátrix rangja}
+    A mátrix rangjának nevezzük az oszlopvektorai közül a lineárisan függetlenek
+    maximális számát. A mátrix rangja elemi átalakítások során nem változik.
+    \begin{itemize}
+      \item tetszőleges sorát vagy oszlopát egy 0-tól különböző számmal
+            megszorozzuk,
+      \item tetszőleges sorát vagy oszlopát felcseréljük,
+      \item tetszőleges sorához vagy oszlopához egy másik tetszőleges sorát
+            vagy oszlopát adjuk.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Mátrixok}
+  \framesubtitle{Mátrixos feladatok}
+
+  \vfill
+  \input{exercise/determinant}
+  \vfill
+  \input{exercise/rank}
+  \vfill
+\end{frame}
+
+\begin{frame}
+  \frametitle{Mátrixok}
+  \framesubtitle{Mátrix inverz}
+
+  \vfill
+
+  \begin{block}{Reguláris / Szinguláris mátrix}
+    Egy kvadratikus ($\rmat A \in \mathbb R^{n \times n}$) mátrixot
+    \textbf{reguláris}nak mondunk, ha determinánsa nem 0.
+    \\[3mm]
+    Ha a kvadratikus mátrix determinánsa 0, \textbf{szinguláris} mátrixról
+    beszélünk.
+  \end{block}
+
+  \vfill
+
+  \begin{block}{Inverz}
+    Az $\rmat A \in \mathbb R^{n \times n}$ reguláris mátrix inverze alatt azt
+    az $\rmat A^{-1} \in \mathbb R^{n \times n}$ mátrixot értjük, melyre
+    $\rmat A \cdot \rmat A^{-1} = \imat$ egyenlőség teljesül.
+    \\[3mm]
+    Szinguláris mátrixnak nem létezik az inverze.
+  \end{block}
+
+  \vfill
+\end{frame}
+
+\begin{frame}
+  \frametitle{Mátrixok}
+  \framesubtitle{Inverz meghatározása}
+
+  \begin{block}{Adjugált mátrix segítségével}
+    \[
+      \rmat A^{-1} = \frac{\adj \rmat A}{\det \rmat A}
+      \hspace{1cm}
+      \rmat A = \begin{bmatrix}
+        a_{11} & a_{12} & a_{13} \\
+        a_{21} & a_{22} & a_{23} \\
+        a_{31} & a_{32} & a_{33}
+      \end{bmatrix}
+    \]
+    \[
+      \adj \rmat A = \begin{bmatrix}
+        + \begin{vmatrix}
+            a_{22} & a_{23} \\
+            a_{32} & a_{33}
+          \end{vmatrix}
+         &
+        - \begin{vmatrix}
+            a_{12} & a_{13} \\
+            a_{32} & a_{33}
+          \end{vmatrix}
+         &
+        +\begin{vmatrix}
+           a_{12} & a_{13} \\
+           a_{22} & a_{23}
+         \end{vmatrix}
+        \\
+        - \begin{vmatrix}
+            a_{21} & a_{23} \\
+            a_{31} & a_{33}
+          \end{vmatrix}
+         &
+        + \begin{vmatrix}
+            a_{11} & a_{13} \\
+            a_{31} & a_{33}
+          \end{vmatrix}
+         &
+        - \begin{vmatrix}
+            a_{11} & a_{13} \\
+            a_{21} & a_{23}
+          \end{vmatrix}
+        \\
+        + \begin{vmatrix}
+            a_{21} & a_{22} \\
+            a_{31} & a_{32}
+          \end{vmatrix}
+         &
+        - \begin{vmatrix}
+            a_{11} & a_{12} \\
+            a_{31} & a_{32}
+          \end{vmatrix}
+         &
+        +\begin{vmatrix}
+           a_{11} & a_{12} \\
+           a_{21} & a_{22}
+         \end{vmatrix}
+      \end{bmatrix}
+    \]
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Mátrixok}
+  \framesubtitle{Inverz meghatározása}
+
+  \vfill
+
+  \begin{block}{Gauss-Jordan eliminációval}
+    \[
+      \left[\begin{array}{*{3}{>{\cdot}{c}}|*{3}c}
+           &  &  & 1 & 0 & 0 \\
+           &  &  & 0 & 1 & 0 \\
+           &  &  & 0 & 0 & 1 \\
+        \end{array}\right]
+      \quad \sim \quad
+      \left[\begin{array}{*{3}{c}|*{3}{>{\cdot}{c}}}
+          1 & 0 & 0 &  &  & \\
+          0 & 1 & 0 &  &  & \\
+          0 & 0 & 1 &  &  & \\
+        \end{array}\right]
+    \]
+  \end{block}
+
+  \vfill
+
+  \input{exercise/inverse.tex}
+
+  \vfill
+\end{frame}
+
+\begin{frame}
+  \frametitle{Mátrixok}
+  \framesubtitle{Mátrix egyenletek}
+
+  \input{exercise/matrix-equation}
+\end{frame}
