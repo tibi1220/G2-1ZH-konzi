@@ -17,6 +17,7 @@ jobs:
         id: compile_latex
         uses: ktht/latex-action@v3
         with:
+          args: -r .latexmkrc
           root_file: |
             handout.tex
             presentation.tex
