@@ -9,17 +9,20 @@ jobs:
         id: get_date
         run: echo "date=$(date +'%Y-%m-%d--%H-%M-%S')" >> $GITHUB_OUTPUT
 
+      - name: Install GNUplot
+
       - name: Checkout repo
         id: checkout_repo
         uses: actions/checkout@v3
 
       - name: Compile LaTeX Document
         id: compile_latex
-        uses: xu-cheng/texlive-action/full@v1
+        uses: ktht/latex-action@v3
         with:
           run: |
-            latexmk -r .latexmkrc handout.tex
-            latexmk -r .latexmkrc presentation.tex
+            handout.tex
+            presentation.tex
+            exercises.tex
 
       - name: Create Release
         id: create_release
@@ -61,10 +64,10 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./build/handout.pdf
-          asset_name: mszo-g2-1zh-feladatok.pdf
+          asset_name: mszo-g2-1zh-kidolgozas.pdf
           asset_content_type: application/pdf
 
-      - name: Upload Presentation Logfile to release
+      - name: Upload Handout Logfile to release
         id: upload_handout_log
         uses: actions/upload-release-asset@v1
         env:
@@ -73,4 +76,26 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./build/handout.log
           asset_name: handout.log
+          asset_content_type: text/log
+
+      - name: Upload Exercises to Release
+        id: upload_exercises_pdf
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build/exercises.pdf
+          asset_name: mszo-g2-1zh-feladatok.pdf
+          asset_content_type: application/pdf
+
+      - name: Upload Exercises Logfile to release
+        id: upload_exercises_log
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build/exercises.log
+          asset_name: exercises.log
           asset_content_type: text/log

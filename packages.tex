@@ -31,5 +31,7 @@
 
 \usepackage[stixtwo]{fontsetup}
 
-\usepackage{tikz}
+\usepackage{tikz, pgfplots}
 \usetikzlibrary{calc, matrix}
+\pgfplotsset{compat=1.18}
+\pgfkeys{/pgf/plot/gnuplot call={cd build && gnuplot}}

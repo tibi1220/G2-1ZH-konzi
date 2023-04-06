@@ -1,76 +1,243 @@
 \begin{exercise}{%
     Milyen alakzatot írnak le az alábbi másodfokú görbék?
+    Írjuk fel a kanonikus egyenletüket!
+    Írjuk fel a főtengelyek irányvektorait!
   }
   \begin{enumerate}[a)]
-    \item $5x^2 + 3y^2 + 12xy = -169$
-    \item $5x^2 + 3y^2 + 4xy = 49$
+    \item $x^2 + 10\sqrt{3} xy + 11y^2 = 64$
+    \item $7x^2 + 6\sqrt{3} xy + 13y^2 = 64$
   \end{enumerate}
 
   \exsol{%
     \begin{enumerate}[a)]
-      \item $5x^2 + 3y^2 + 12xy = -169$
+      \item $x^2 + 10\sqrt{3} xy + 11y^2= 64$
 
             Hozzuk az egyenlet bal oldalát mátrixos alakra:
             \[
-              5x^2 + 3y^2 + 12xy =
+              x^2 + 10\sqrt{3} xy + 11 y^2 =
               \begin{bmatrix} x & y \end{bmatrix}
-              \begin{bmatrix} 5 & 6 \\ 6 & 3 \end{bmatrix}
+              \begin{bmatrix} 1 & 5\sqrt{3} \\ 5\sqrt{3} & 11 \end{bmatrix}
               \begin{bmatrix} x \\ y \end{bmatrix}
               \text.
             \]
             Határozzuk meg a mátrix sajátértékeit:
             \[
-              \begin{vmatrix} 5 - \lambda & 6 \\ 6 & 3 - \lambda \end{vmatrix}
-              = (5 - \lambda)(3 - \lambda) - 36
-              = \lambda^2 - 8 \lambda + 15 - 36
-              = \lambda^2 - 8 \lambda -21
+              \begin{vmatrix} 1 - \lambda & 5\sqrt{3} \\ 5\sqrt{3} & 11 - \lambda \end{vmatrix}
+              = (1 - \lambda)(11 - \lambda) - 75
+              = \lambda^2 - 12 \lambda + 11 - 75
+              = \lambda^2 - 12 \lambda -64
               = 0
               \text,
             \]
             \[
-              \lambda_{12}
-              = \frac{8 \pm \sqrt{8^2 + 4 \cdot 1 \cdot 21}}{2}
-              = 4 \pm \sqrt{37}
-              = \begin{cases}
-                - 2,0828 \text, \\
-                10.083 \text.
+              (\lambda - 16)(\lambda + 4) = 0
+              \quad \rightarrow \quad
+              \lambda_{12} = \begin{cases}
+                16 \text, \\
+                -4 \text.
               \end{cases}
             \]
             Látható, hogy az egyik sajátérték pozitív, a másik pedig negatív,
             vagyis indefinit. Az alakzat ebből következőleg hiperbola.
+            Az egyes sajátértékekhez tartozó sajátvektorok:
+            \begin{enumerate}[1)]
+              \item $\lambda_1 = 16$
+                    \[
+                      \begin{vmatrix}
+                        1 - 16     & 5 \sqrt{3} \\
+                        5 \sqrt{3} & 11 - 16
+                      \end{vmatrix} \;\sim\; \begin{vmatrix}
+                        -15        & 5 \sqrt{3} \\
+                        5 \sqrt{3} & -5
+                      \end{vmatrix} \;\sim\; \begin{vmatrix}
+                        -\sqrt{3} & 1 \\
+                        0         & 0
+                      \end{vmatrix}
+                      \quad \rightarrow \quad
+                      \rvec v_1 = t_1 \begin{bmatrix}
+                        1 \\ \sqrt{3}
+                      \end{bmatrix}
+                    \]
+              \item $\lambda_2 = -4$
+                    \[
+                      \begin{vmatrix}
+                        1 + 4      & 5 \sqrt{3} \\
+                        5 \sqrt{3} & 11 + 4
+                      \end{vmatrix} \;\sim\; \begin{vmatrix}
+                        5          & 5 \sqrt{3} \\
+                        5 \sqrt{3} & 15
+                      \end{vmatrix} \;\sim\; \begin{vmatrix}
+                        1 & \sqrt{3} \\
+                        0 & 0
+                      \end{vmatrix}
+                      \quad \rightarrow \quad
+                      \rvec v_2 = t_2 \begin{bmatrix}
+                        -\sqrt{3} \\ 1
+                      \end{bmatrix}
+                    \]
+            \end{enumerate}
 
+            A hiperbola kanonikus egyenlete:
+            \[
+              \lambda_1 \xi^2 + \lambda_2 \eta^2 = 64
+              \quad \rightarrow \quad
+              16 \xi^2 - 4 \eta^2 = 64
+              \quad \rightarrow \quad
+              \frac{\xi^2}{2^2} - \frac{\eta^2}{4^2} = 1
+              \text.
+            \]
+
+            \begin{center}
+              \begin{tikzpicture}[very thick]
+                \begin{scope}[xshift=3.43cm, yshift=2.845cm]
+                  \draw[-to] (-4,0) -- (4,0) node[below left] {$x$};
+                  \draw[-to] (0,-3) -- (0,3) node[below right] {$y$};
+
+                  \begin{scope}[rotate=60, draw=red!40!black]
+                    \draw[-to] (-3,0) -- (3,0) node[below right] {$\xi$};
+                    \draw[-to] (0,-3) -- (0,3) node[above right] {$\eta$};
+                  \end{scope}
+                \end{scope}
+                \begin{axis}[
+                    xticklabels={,,},
+                    yticklabels={,,},
+                    axis line style={draw=none},
+                    tick style={draw=none},
+                    ymin=-50/6.86, xmin=-50/5.69,
+                    ymax=50/6.86, xmax=50/5.69,
+                  ]
+                  \addplot +[
+                  no markers,
+                  raw gnuplot,
+                  ultra thick,
+                  empty line = jump,
+                  cyan!60!black,
+                  ] gnuplot {
+                      set contour base;
+                      set cntrparam levels discrete 0.003;
+                      unset surface;
+                      set view map;
+                      set isosamples 250;
+                      splot x**2 + 17.3205081 * x * y + 11 * y**2 - 64;
+                    };
+                \end{axis}
+              \end{tikzpicture}
+            \end{center}
 
             \tcbline
-      \item $5x^2 + 3y^2 + 4xy = 49$
+      \item $7x^2 + 6\sqrt{3} xy + 13y^2 = 64$
 
             Hozzuk az egyenlet bal oldalát mátrixos alakra:
             \[
-              5x^2 + 3y^2 + 4xy =
+              7x^2 + 6\sqrt{3} xy + 13y^2 =
               \begin{bmatrix} x & y \end{bmatrix}
-              \begin{bmatrix} 5 & 2 \\ 2 & 3 \end{bmatrix}
+              \begin{bmatrix} 7 & 3\sqrt{3} \\ 3\sqrt{3} & 13 \end{bmatrix}
               \begin{bmatrix} x \\ y \end{bmatrix}
               \text.
             \]
             Határozzuk meg a mátrix sajátértékeit:
             \[
-              \begin{vmatrix} 5 - \lambda & 2 \\ 2 & 3 - \lambda \end{vmatrix}
-              = (5 - \lambda)(3 - \lambda) - 4
-              = \lambda^2 - 8 \lambda + 15 - 4
-              = \lambda^2 - 8 \lambda + 11
+              \begin{vmatrix} 7 - \lambda & 3\sqrt{3} \\ 3\sqrt{3} & 13 - \lambda \end{vmatrix}
+              = (7 - \lambda)(13 - \lambda) - 27
+              = \lambda^2 - 20 \lambda + 91 - 27
+              = \lambda^2 - 20 \lambda + 64
               = 0
               \text,
             \]
             \[
-              \lambda_{12}
-              = \frac{8 \pm \sqrt{8^2 - 4 \cdot 1 \cdot 11}}{2}
-              = 4 \pm \sqrt{5}
-              = \begin{cases}
-                1,7639 \text, \\
-                6,2361 \text.
+              (\lambda - 16)(\lambda - 4) = 0
+              \quad \rightarrow \quad
+              \lambda_{12} = \begin{cases}
+                16 \text, \\
+                4 \text.
               \end{cases}
             \]
             Látható, hogy minkét sajátérték pozitív, vagyis a mátrix pozitív
             definit. Az alakzat ebből következőleg ellipszis.
+            Az egyes sajátértékekhez tartozó sajátvektorok:
+            \begin{enumerate}[1)]
+              \item $\lambda_1 = 16$
+                    \[
+                      \begin{vmatrix}
+                        7 - 16     & 3 \sqrt{3} \\
+                        3 \sqrt{3} & 13 - 16
+                      \end{vmatrix} \;\sim\; \begin{vmatrix}
+                        -9         & 3 \sqrt{3} \\
+                        3 \sqrt{3} & -3
+                      \end{vmatrix} \;\sim\; \begin{vmatrix}
+                        -\sqrt{3} & 1 \\
+                        0         & 0
+                      \end{vmatrix}
+                      \quad \rightarrow \quad
+                      \rvec v_1 = t_1 \begin{bmatrix}
+                        1 \\ \sqrt{3}
+                      \end{bmatrix}
+                    \]
+              \item $\lambda_2 = 4$
+                    \[
+                      \begin{vmatrix}
+                        7 - 4      & 3 \sqrt{3} \\
+                        3 \sqrt{3} & 13 - 4
+                      \end{vmatrix} \;\sim\; \begin{vmatrix}
+                        3          & 3 \sqrt{3} \\
+                        3 \sqrt{3} & 9
+                      \end{vmatrix} \;\sim\; \begin{vmatrix}
+                        1 & \sqrt{3} \\
+                        0 & 0
+                      \end{vmatrix}
+                      \quad \rightarrow \quad
+                      \rvec v_2 = t_2 \begin{bmatrix}
+                        -\sqrt{3} \\ 1
+                      \end{bmatrix}
+                    \]
+
+                    Az ellipszis kanonikus egyenlete:
+                    \[
+                      \lambda_1 \xi^2 + \lambda_2 \eta^2 = 64
+                      \quad \rightarrow \quad
+                      16 \xi^2 + 4 \eta^2 = 64
+                      \quad \rightarrow \quad
+                      \frac{\xi^2}{2^2} + \frac{\eta^2}{4^2} = 1
+                      \text.
+                    \]
+
+                    \begin{center}
+                      \begin{tikzpicture}[very thick]
+                        \begin{scope}[xshift=3.43cm, yshift=2.845cm]
+                          \draw[-to] (-3,0) -- (3,0) node[below left] {$x$};
+                          \draw[-to] (0,-2.5) -- (0,2.5) node[below right] {$y$};
+
+                          \begin{scope}[rotate=60, draw=red!40!black]
+                            \draw[-to] (-2.5,0) -- (2.5,0) node[below right] {$\xi$};
+                            \draw[-to] (0,-3) -- (0,3) node[above right] {$\eta$};
+                          \end{scope}
+                        \end{scope}
+                        \begin{axis}[
+                            xticklabels={,,},
+                            yticklabels={,,},
+                            axis line style={draw=none},
+                            tick style={draw=none},
+                            ymin=-50/6.86, xmin=-50/5.69,
+                            ymax=50/6.86, xmax=50/5.69,
+                          ]
+                          \addplot +[
+                          no markers,
+                          raw gnuplot,
+                          ultra thick,
+                          empty line = jump,
+                          cyan!60!black,
+                          ] gnuplot {
+                              set contour base;
+                              set cntrparam levels discrete 0.003;
+                              unset surface;
+                              set view map;
+                              set isosamples 250;
+                              splot 7 * x**2 + 10.39230485 * x * y + 13 * y**2 - 64;
+                            };
+                        \end{axis}
+                      \end{tikzpicture}
+                    \end{center}
+            \end{enumerate}
     \end{enumerate}
   }
 \end{exercise}
