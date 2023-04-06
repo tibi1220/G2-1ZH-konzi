@@ -12,8 +12,19 @@
 \setbeamercovered{transparent}
 \usefonttheme[onlymath]{serif}
 
+\titlegraphic{\includegraphics[scale=.25]{static/mszo-768x267.png}}
+% \logo{\includegraphics[]{static/mszo-768x267.png}}
+% \setbeamertemplate{headline}{\hfill\includegraphics[width=1.5cm]{static/mszo-768x267.png}\hspace{0.2cm}\vspace{-1cm}}
+
+
 \usepackage{ragged2e}
 \addtobeamertemplate{block begin}{}{\justifying}
+\addtobeamertemplate{frametitle}{}{%
+\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north east,yshift=-6mm] at (current page.north east) {
+  \includegraphics[height=10mm]{static/mszo-768x267.png}
+};
+\end{tikzpicture}\vspace{-5mm}}
 
 % Document begins here
 \begin{document}
@@ -24,6 +35,7 @@
 % About -- the structure of the consultation
 \begin{frame}
   \frametitle{A konzultáció felépítése}
+  \framesubtitle{\;}
   \tableofcontents
 \end{frame}
 
@@ -97,6 +109,7 @@
   \frametitle{Vektorterek}
   \framesubtitle{Generátoros feladat}
 
+  \vspace{-7.5mm}
   \input{exercise/span.tex}
 \end{frame}
 
@@ -158,6 +171,7 @@
   \frametitle{Mátrixok}
   \framesubtitle{Elemi mátrixműveletek}
 
+  \vspace{-7.5mm}
   \begin{block}{Mátrix szorzás
       -- asszociatív, disztributív, de nem kommutatív!}
     \[
@@ -198,6 +212,7 @@
   \frametitle{Mátrixok}
   \framesubtitle{Determináns}
 
+  \vspace{-5mm}
   \begin{block}{Kifejtési tétel -- előjelszabály!}
     \begin{align*}
       \begin{vmatrix}
@@ -472,6 +487,7 @@
   \frametitle{Lineáris egyenletrendszerek}
   \framesubtitle{Megoldhatóság}
 
+  \vspace{-7.5mm}
   \begin{block}{LER megoldhatóságának szükséges és elégséges feltétele}
     Az $\rmat A \rvec x = \rvec b$ lineáris egyenletrendszer akkor és csak
     akkor oldható meg, ha $\rg(\rmat A) = \rg(\rmat A | \rvec b)$, ahol az
@@ -527,6 +543,7 @@
   \frametitle{Lineáris egyenletrendszerek}
   \framesubtitle{Megoldási módszerek II}
 
+  \vspace{-7.5mm}
   \begin{block}{Gauss elimináció}
     Sorműveletekkel alakítjuk a kibővített mátrixot:
     \[
@@ -680,12 +697,238 @@
   \input{exercise/linear-map}
 \end{frame}
 
-% Eigenvalues and eigenvectors
-\section{Sajátértékek és sajátvektorok}
+% Rotations etc
 \begin{frame}
-  \frametitle{Sajátértékek és sajátvektorok}
+  \frametitle{Lineáris leképezések}
+  \framesubtitle{Alap geometriai leképezések I}
+
+  \begin{block}{Tükrözés valamelyik tengelyre}
+    \[
+      \rmat A_x = \overset{x\text{-tengelyre}}{\begin{bmatrix}
+          1 & 0  & 0  \\
+          0 & -1 & 0  \\
+          0 & 0  & -1
+        \end{bmatrix}}
+      \text,
+      \quad
+      \rmat A_y = \overset{y\text{-tengelyre}}{\begin{bmatrix}
+          -1 & 0 & 0  \\
+          0  & 1 & 0  \\
+          0  & 0 & -1
+        \end{bmatrix}}
+      \text,
+      \quad
+      \rmat A_z = \overset{z\text{-tengelyre}}{\begin{bmatrix}
+          -1 & 0  & 0 \\
+          0  & -1 & 0 \\
+          0  & 0  & 1
+        \end{bmatrix}}
+      \text.
+    \]
+  \end{block}
+
+  \begin{block}{Tükrözés valamelyik síkra}
+    \[
+      \rmat A_{xy} = \overset{xy\text{-síkra}}{\begin{bmatrix}
+          1 & 0 & 0  \\
+          0 & 1 & 0  \\
+          0 & 0 & -1
+        \end{bmatrix}}
+      \text,
+      \quad
+      \rmat A_{xz} = \overset{xz\text{-síkra}}{\begin{bmatrix}
+          1 & 0  & 0 \\
+          0 & -1 & 0 \\
+          0 & 0  & 1
+        \end{bmatrix}}
+      \text,
+      \quad
+      \rmat A_{yz} = \overset{yz\text{-síkra}}{\begin{bmatrix}
+          1 & 0 & 0  \\
+          0 & 1 & 0  \\
+          0 & 0 & -1
+        \end{bmatrix}}
+      \text.
+    \]
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Lineáris leképezések}
+  \framesubtitle{Alap geometriai leképezések II}
+
+  \begin{block}{Vetítés valamelyik tengelyre}
+    \[
+      \rmat A_x = \overset{x\text{-tengelyre}}{\begin{bmatrix}
+          1 & 0 & 0 \\
+          0 & 0 & 0 \\
+          0 & 0 & 0
+        \end{bmatrix}}
+      \text,
+      \quad
+      \rmat A_y = \overset{y\text{-tengelyre}}{\begin{bmatrix}
+          0 & 0 & 0 \\
+          0 & 1 & 0 \\
+          0 & 0 & 0
+        \end{bmatrix}}
+      \text,
+      \quad
+      \rmat A_z = \overset{z\text{-tengelyre}}{\begin{bmatrix}
+          0 & 0 & 0 \\
+          0 & 0 & 0 \\
+          0 & 0 & 1
+        \end{bmatrix}}
+      \text.
+    \]
+  \end{block}
+
+  \begin{block}{Vetítés valamelyik síkra}
+    \[
+      \rmat A_{xy} = \overset{xy\text{-síkra}}{\begin{bmatrix}
+          1 & 0 & 0 \\
+          0 & 1 & 0 \\
+          0 & 0 & 0
+        \end{bmatrix}}
+      \text,
+      \quad
+      \rmat A_{xz} = \overset{xz\text{-síkra}}{\begin{bmatrix}
+          1 & 0 & 0 \\
+          0 & 0 & 0 \\
+          0 & 0 & 1
+        \end{bmatrix}}
+      \text,
+      \quad
+      \rmat A_{yz} = \overset{yz\text{-síkra}}{\begin{bmatrix}
+          1 & 0 & 0 \\
+          0 & 1 & 0 \\
+          0 & 0 & 0
+        \end{bmatrix}}
+      \text.
+    \]
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Lineáris leképezések}
+  \framesubtitle{Alap geometriai leképezések III}
+
+  \begin{block}{Forgatások -- ortogonális transzformációk}
+    \[
+      \begin{array}{X{67mm} c p{26mm}}
+        \rmat A_x(\varphi) =
+        \left[\begin{array}{*{3}{X{12mm}}}
+                  1 & 0            & 0             \\
+                  0 & \cos \varphi & -\sin \varphi \\
+                  0 & \sin \varphi & \cos \varphi
+                \end{array}\right]
+         & -
+         & $x$\text{-tengely körül,}
+        \\
+        \rmat A_y(\varphi) =
+        \left[\begin{array}{*{3}{X{12mm}}}
+                  \cos \varphi  & 0 & \sin \varphi \\
+                  0             & 1 & 0            \\
+                  -\sin \varphi & 0 & \cos \varphi
+                \end{array}\right]
+         & -
+         & $y$\text{-tengely körül,}
+        \\
+        \rmat A_z(\varphi) =
+        \left[\begin{array}{*{3}{X{12mm}}}
+                  \cos \varphi & -\sin \varphi & 0 \\
+                  \sin \varphi & \cos \varphi  & 0 \\
+                  0            & 0             & 1
+                \end{array}\right]
+         & -
+         & $z$\text{-tengely körül.}
+      \end{array}
+    \]
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Lineáris leképezések}
+  \framesubtitle{Geometriai leképezések feladat}
+
+  \input{exercise/rotation}
+\end{frame}
+
+% Eigenvalues and eigenvectors
+\begin{frame}
+  \frametitle{Lineáris leképezések}
+  \framesubtitle{Sajátértékek és sajátvektorok I}
+
+  \begin{block}{Definíció}
+    Legyen $V$ a $T$ test feletti vektortér, $\rvec v \in V$, $\rvec v \neq
+      \nvec$. $\rvec v$-t a $\varphi: V \rightarrow V$ lineáris leképezés
+    sajátvektorának mondjuk, ha önmaga skalárszorosába megy át a leképezés
+    során, azaz $\varphi(\rvec v) = \lambda \rvec v$,  $\lambda \in T$.
+    $\lambda$-t a $\rvec v$ sajátvektorhoz tartozó sajátértéknek mondjuk.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Lineáris leképezések}
+  \framesubtitle{Sajátértékek és sajátvektorok II}
+
+  \begin{block}{Sajátértékek számítása}
+    Az $\rmat A$ mátrix sajátértékei a karakterisztikus egyenlet megoldásával
+    határozhatóak meg:
+    \[
+      \det (\rmat A - \lambda \imat) = 0
+      \text.
+    \]
+  \end{block}
+
+  \begin{block}{Sajátvektorok meghatározása}
+    Az egyes sajátértékekhez tartozó sajátvektorok az alábbi egyenlet alapján
+    határozhatóak meg:
+    \[
+      (\rmat A - \lambda_i \imat) \rvec v_i = \nvec
+      \text.
+    \]
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Lineáris leképezések}
+  \framesubtitle{Sajátértékek és sajátvektorok II}
+
+  \input{exercise/eigen}
+  \input{exercise/exponentiation}
 \end{frame}
 
 
+% Conic sections
+\begin{frame}
+  \frametitle{Lineáris leképezések}
+  \framesubtitle{Másodfokú görbék}
+
+  \begin{block}{Kvadratikus forma}
+    Csupa másodfokú tagot tartalmazó polinomok átírhatóak mátrixos alakra:
+    \[
+      a x^2 + 2 b x y + c y^2
+      =
+      \begin{bmatrix} x & y \end{bmatrix}
+      \begin{bmatrix} a & b \\ b & c \end{bmatrix}
+      \begin{bmatrix} x \\ y \end{bmatrix}
+      =
+      \rvec x^{\mathsf T} \rmat A \rvec x
+      \text.
+    \]
+  \end{block}
+
+  \begin{block}{Mátrix definitsége}
+    \centering
+    \begin{tabular}{l>{$\sim}{c}<{$}>{$\forall \lambda_i}{c}<{$}}
+      pozitív definit      &  & > 0    \\
+      pozitív szemidefinit &  & \geq 0 \\
+      negatív definit      &  & < 0    \\
+      negatív szemidefinit &  & \leq 0 \\
+    \end{tabular}
+    \\[2mm]
+    indefinit, ha az előzőek közül egyik sem
+  \end{block}
+\end{frame}
 
 \end{document}
