@@ -1,7 +1,7 @@
 \section{Mátrixok}
 \begin{frame}
   \frametitle{Mátrixok}
-  \framesubtitle{Alapfogalmak}
+  \framesubtitle{Alapfogalmak I}
 
   \vfill
 
@@ -9,6 +9,36 @@
     Az $m$ sorba és $n$ oszlopba rendezett rendezett számokat mátrixoknak
     nevezzük.
   \end{block}
+
+  \vfill
+
+  \begin{block}{Speciális elnevezések}
+    \begin{itemize}
+      \item $\rmat M \in \mathbb R^{n \times 1}$ -- oszlopmátrix
+      \item $\rmat M \in \mathbb R^{1 \times k}$ -- sormátrix
+      \item $\rmat M \in \mathbb R^{n \times n}$ -- kvadratikus mátrix
+            \[
+              \imat = \overset{\text{egységmátrix}}{\begin{bmatrix}
+                  1      & \dots  & 0      \\
+                  \vdots & \ddots & \vdots \\
+                  0      & \dots  & 1
+                \end{bmatrix}}
+              \hspace{2cm}
+              \nmat = \overset{\text{nullmátrix}}{\begin{bmatrix}
+                  0      & \dots  & 0      \\
+                  \vdots & \ddots & \vdots \\
+                  0      & \dots  & 0
+                \end{bmatrix}}
+            \]
+    \end{itemize}
+  \end{block}
+
+  \vfill
+\end{frame}
+
+\begin{frame}
+  \frametitle{Mátrixok}
+  \framesubtitle{Alapfogalmak I}
 
   \vfill
 
@@ -95,6 +125,76 @@
 \begin{frame}
   \frametitle{Mátrixok}
   \framesubtitle{Determináns}
+
+  \begin{block}{A determináns axonometrikus felépítése}
+    Legyen $\rmat A \in \mathbb R^{n \times n}$ kvadratikus mátrix, és
+    $\det: \mathbb R^{n \times n} \rightarrow \mathbb R$ függvény.
+    Az $\rmat A$ mátrix determinánsának nevezzük $\det \rmat A$-t,
+    a hozzárendelést pedig az alábbi négy axióma írja le:
+    \newcommand\noskp{\vspace{-3mm}}
+    \begin{enumerate}
+      \item homogén:\noskp
+            \[
+              \edet{\lambda \rvec a_i} = \lambda \edet{\rvec a_i}
+            \]
+      \item \noskp additív:\noskp
+            \[
+              \edet{\rvec a_i + \rvec b_i} =
+              \edet{\rvec a_i} + \edet{\rvec b_i}
+            \]
+      \item \noskp alternáló:\noskp
+            \[
+              \edet{\rvec a_i & \dots & \rvec a_j} =
+              - \edet{\rvec a_j & \dots & \rvec a_i}
+            \]
+      \item \noskp $\imat$ determinánsa:\noskp
+            \[
+              \det \begin{pmatrix}
+                \uvec e_1 & \uvec e_2 & \dots & \uvec e_n
+              \end{pmatrix} = 1
+            \]
+    \end{enumerate}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Mátrixok}
+  \framesubtitle{Determináns tulajdonságai}
+
+  \begin{block}{Tételek}
+    \begin{itemize}
+      \item Egy mátrix determinánsa 0, ha \dots
+            \begin{itemize}
+              \item az egyik oszlopvektora nullvektor,
+              \item van két azonos oszlopvektora,
+              \item az oszlopvektorai lineárisan összefüggőek.
+            \end{itemize}
+      \item Nem változik a determináns, ha az egyik oszlophoz hozzáadjuk egy
+            másik oszlop skalárszorosát.
+      \item Mátrix és transzponáltjának determinánsa megegyezik.
+      \item Determinánsok szorzástétele:
+            $\det (\rmat A \cdot \rmat B) = \det \rmat A \cdot \det \rmat B$.
+      \item Ha $\rmat A \in \mathbb R^{n \times n}$, akkor
+            $\det (\lambda \rmat A) = \lambda^n \det \rmat A$.
+      \item \(
+            \rvec a \cdot (\rvec b \times \rvec c) = \det \begin{pmatrix}
+              \rvec a & \rvec b & \rvec c
+            \end{pmatrix}
+            \)
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Mátrixok}
+  \framesubtitle{Determinánsos tételek alkalmazása}
+
+  \input{exercise/determinant-theorems}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Mátrixok}
+  \framesubtitle{Determináns számítása}
 
   \begin{block}{Kifejtési tétel -- előjelszabály!}
     \begin{align*}

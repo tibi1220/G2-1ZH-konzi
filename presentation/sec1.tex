@@ -37,20 +37,33 @@
 
 \begin{frame}
   \frametitle{Vektorterek}
-  \framesubtitle{Vektorteres feladat}
+  \framesubtitle{További definíciók I}
 
-  \input{exercise/vector-space.tex}
-\end{frame}
+  \begin{block}{Lineáris függőség / függetlenség}
+    A $(V; +; \lambda)$ vektortér $a_1; a_2; \dots; a_n$ vektorait
+    \textbf{lineárisan függő}nek mondjuk, ha a
+    \[
+      \lambda_1 \rvec a_1 +
+      \lambda_2 \rvec a_2 +
+      \dots +
+      \lambda_n \rvec a_n =
+      \nvec
+    \]
+    vektoregyenletnek létezik a triviálistól különböző megoldása is.
 
-\begin{frame}
-  \frametitle{Vektorterek}
-  \framesubtitle{További definíció}
+    Ellenkező esetben \textbf{lineárisan független}ek.
+  \end{block}
 
   \begin{block}{Altér}
     Legyen $(V; +; \lambda)$ a $T$ test feletti vektortér, és
     $\emptyset \neq L \subset V$. $L$-t altérnek nevezzük $V$-ben, ha
     $(L; +; \lambda)$ ugyancsak vektortér.
   \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Vektorterek}
+  \framesubtitle{További definíciók II}
 
   \begin{block}{Generátorrendszer}
     Legyen $\emptyset \neq G \subset V$. Ekkor $G$ által generált altérnek
@@ -62,11 +75,29 @@
     A $V$ vektortér egy lineárisan független generátorrendszerét a $V$ bázisának
     hívjuk.
   \end{block}
+
+  \begin{block}{Vektortér dimenziója}
+    Végesen generált vektortér dimenzióján a bázisainak közös tagszámát értjük.
+  \end{block}
 \end{frame}
 
 \begin{frame}
   \frametitle{Vektorterek}
-  \framesubtitle{Generátoros feladat}
+  \framesubtitle{Feladatok I}
+
+  \input{exercise/linear-independence}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Vektorterek}
+  \framesubtitle{Feladatok II}
+
+  \input{exercise/vector-space.tex}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Vektorterek}
+  \framesubtitle{Feladatok III}
 
   \input{exercise/span.tex}
 \end{frame}

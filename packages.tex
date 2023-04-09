@@ -10,6 +10,7 @@
 \usepackage{array}
 \usepackage{multicol}
 \usepackage{icomma}
+\usepackage{tabto}
 
 \newcolumntype{x}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
 \newcolumntype{X}[1]{>{$}x{#1}<{$}}
@@ -18,11 +19,13 @@
 \newcommand{\gcc}[1]{\cellcolor{gray!25}{#1}}
 
 \newcommand\iu{\mathbf{i}}
+\newcommand{\nvec}{\text{\textbf{\textit{0}}}}
 \newcommand\imat{{\mathbb{E}}}
+\newcommand\nmat{{\mathbb{O}}}
 \newcommand{\rvec}[1]{\mathbfit{#1}}
 \newcommand{\uvec}[1]{\widehat{\mathbfit{#1}}}
 \newcommand{\rmat}[1]{\mathbf{#1}}
-\newcommand{\nvec}{\text{\textbf{\textit{0}}}}
+\newcommand{\edet}[1]{\det \begin{pmatrix} \dots & #1 & \dots \end{pmatrix}}
 \DeclareMathOperator{\rg}{rg}
 \DeclareMathOperator{\adj}{adj}
 \DeclareMathOperator{\defect}{def}
