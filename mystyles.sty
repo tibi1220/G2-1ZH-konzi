@@ -25,15 +25,28 @@
 \newif\ifinside@@exercise
 \inside@@exercisefalse
 % New environment for handling exercises
+\usetikzlibrary {patterns,patterns.meta} 
 \ifprint@@sols%
   \def\@@cb{yellow!3}%
   \def\@@cf{cyan!40!black}%
   \def\@@ct{white}
+  \def\@@ul{}
 \fi%
 \ifkeep@@space%
   \def\@@cb{yellow!3}%
   \def\@@cf{cyan!40!black}%
   \def\@@ct{white}
+  \def\@@ul{%
+    \begin{tcbclipinterior}
+      \fill[
+        pattern={%
+          Dots[distance=5mm, angle=90],%
+        },%
+        pattern color=gray,
+        shift={(interior.north west)},
+      ] (interior.south west) rectangle (segmentation.east);
+    \end{tcbclipinterior}
+  }
   % \def\@@cb{yellow!1}%
   % \def\@@cf{white!80!black}%
   % \def\@@ct{black}
@@ -51,6 +64,8 @@
       coltitle=\@@ct,%
       breakable,%
       title={\#\theexercisectr\ #1},%
+      enhanced,
+      underlay={\@@ul},
     ]%
   }%
 }{%
