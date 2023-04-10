@@ -1,6 +1,7 @@
 \documentclass[xcolor={table}]{beamer}
 
 \input{packages}
+\usepackage{qrcode}
 \usepackage{mystyles}
 
 % Beamer general settings
@@ -49,8 +50,18 @@
   \framesubtitle{\;}
 
   \centering
-  \LARGE
-  Köszönöm szépen a figyelmet!
+  {
+    \LARGE\bfseries
+    Köszönöm szépen a figyelmet!
+  }
+  \\[5mm]
+  Értékelő form:
+  \\[2mm]
+  \qrcode[height=1.25in]{https://forms.gle/1ASApGiHaGoW2Ygu7}
+  \\[2mm]
+  \href
+  {https://forms.gle/1ASApGiHaGoW2Ygu7}
+  {https://forms.gle/1ASApGiHaGoW2Ygu7}
 \end{frame}
 
 \end{document}
