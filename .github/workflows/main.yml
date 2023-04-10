@@ -13,7 +13,7 @@ jobs:
         id: checkout_repo
         uses: actions/checkout@v3
 
-      - name: Compile LaTeX Document
+      - name: Compile LaTeX Documents
         id: compile_latex
         uses: ktht/latex-action@v3
         with:
@@ -41,10 +41,10 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./build/presentation.pdf
-          asset_name: mszo-g2-1zh-eloadas.pdf
+          asset_name: G2-1ZH-prezentacio.pdf
           asset_content_type: application/pdf
 
-      - name: Upload Presentation Logfile to release
+      - name: Upload Presentation Logfile to Release
         id: upload_presentation_log
         uses: actions/upload-release-asset@v1
         env:
@@ -63,10 +63,10 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./build/handout.pdf
-          asset_name: mszo-g2-1zh-kidolgozas.pdf
+          asset_name: G2-1ZH-kidolgozas.pdf
           asset_content_type: application/pdf
 
-      - name: Upload Handout Logfile to release
+      - name: Upload Handout Logfile to Release
         id: upload_handout_log
         uses: actions/upload-release-asset@v1
         env:
@@ -85,10 +85,10 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./build/exercises.pdf
-          asset_name: mszo-g2-1zh-feladatok.pdf
+          asset_name: G2-1ZH-feladatok.pdf
           asset_content_type: application/pdf
 
-      - name: Upload Exercises Logfile to release
+      - name: Upload Exercises Logfile to Release
         id: upload_exercises_log
         uses: actions/upload-release-asset@v1
         env:
